@@ -31,7 +31,7 @@ class DimensUtilTest {
     }
 
     @Test
-    fun dpToPx2ForNexus6() {
+    fun dpToPxForNexus6() {
         metrics.xdpi = 560.0F
 
         `when`(mockContext.resources).thenReturn(resources)
@@ -39,5 +39,27 @@ class DimensUtilTest {
 
         // expected: 実際にEmulatorでビルドした時の値を適用
         Assert.assertEquals(28, DimensUtil.dpToPx(8, mockContext))
+    }
+
+    @Test
+    fun pxToDpForPixel() {
+        metrics.xdpi = 420.0F
+
+        `when`(mockContext.resources).thenReturn(resources)
+        `when`(resources.displayMetrics).thenReturn(metrics)
+
+        // expected: 実際にEmulatorでビルドした時の値を適用
+        Assert.assertEquals(8, DimensUtil.pxToDp(21, mockContext))
+    }
+
+    @Test
+    fun pxToDpForNexus6() {
+        metrics.xdpi = 560.0F
+
+        `when`(mockContext.resources).thenReturn(resources)
+        `when`(resources.displayMetrics).thenReturn(metrics)
+
+        // expected: 実際にEmulatorでビルドした時の値を適用
+        Assert.assertEquals(8, DimensUtil.pxToDp(28, mockContext))
     }
 }
