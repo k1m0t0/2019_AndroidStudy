@@ -8,7 +8,7 @@ public class DimensUtil {
     private DimensUtil() {
     }
 
-    public static int dpToPx(int dp,Context context) {
+    public static int dpToPx(int dp, Context context) {
         DisplayMetrics displayMetrics = context.getResources().getDisplayMetrics();
         return Math.round(dp * (displayMetrics.xdpi / DisplayMetrics.DENSITY_DEFAULT));
     }
