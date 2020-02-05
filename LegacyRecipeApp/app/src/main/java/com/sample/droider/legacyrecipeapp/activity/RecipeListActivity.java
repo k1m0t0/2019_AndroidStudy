@@ -84,13 +84,13 @@ public class RecipeListActivity extends AppCompatActivity implements ApiRequestT
             @Override
             public void getItemOffsets(@NonNull Rect outRect, @NonNull View view, @NonNull RecyclerView parent, @NonNull RecyclerView.State state) {
                 super.getItemOffsets(outRect, view, parent, state);
-                outRect.top = DimensUtil.dpToPx(8, getApplicationContext());
-                outRect.right = DimensUtil.dpToPx(8, getApplicationContext());
-                outRect.left = DimensUtil.dpToPx(8, getApplicationContext());
+                outRect.top = DimensUtil.INSTANCE.dpToPx(8, getApplicationContext());
+                outRect.right = DimensUtil.INSTANCE.dpToPx(8, getApplicationContext());
+                outRect.left = DimensUtil.INSTANCE.dpToPx(8, getApplicationContext());
 
                 int position = parent.getChildAdapterPosition(view);
                 if (position == parent.getAdapter().getItemCount() - 1) {
-                    outRect.bottom = DimensUtil.dpToPx(8, getApplicationContext());
+                    outRect.bottom = DimensUtil.INSTANCE.dpToPx(8, getApplicationContext());
                 }
             }
         });
