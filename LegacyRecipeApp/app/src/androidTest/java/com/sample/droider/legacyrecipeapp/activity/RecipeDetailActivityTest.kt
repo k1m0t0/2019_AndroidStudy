@@ -33,8 +33,14 @@ class RecipeDetailActivityTest {
         itemCount = recycler.adapter?.itemCount ?: 0
     }
 
+    /**
+     * 固定文言セクションのテスト
+     *
+     * 固定文言セクションはAPIの返却値がない場合表示されない事があるが、
+     * Espressoテスト練習のため材料セクションと手順セクションが必ず表示される前提とする
+     */
     @Test
-    fun displayFixedLabel() {
+    fun displayFixedLabelTest() {
         for (i in 0 until itemCount) {
             // セルタップ
             onView(withId(R.id.recycler))
